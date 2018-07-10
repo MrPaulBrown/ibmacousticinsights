@@ -1,0 +1,151 @@
+#:kivy 1.10.0
+
+<AIDemo>:
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.15
+            height: '48dp'
+
+            Label:
+                text: 'Label'
+
+            # TextInput:
+            #     id: labelInput
+            #     multiline: False
+
+            Button:
+                id: labelSelect
+                text: 'unknown'
+
+            DropDown:
+                id: labelDropDown
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.15
+            height: '48dp'
+
+            Label:
+                text: 'Scoring'
+
+            Switch:
+                id: scoringSwitch
+                active: True
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.15
+            height: '48dp'
+
+            Label:
+                text: 'Sample Length'
+
+            Slider:
+                id: sampleLengthSlider
+                min: 1
+                max: 60
+                value: 3
+                step: 1
+
+            Label:
+                text: '{} seconds'.format(sampleLengthSlider.value)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.15
+            height: '48dp'
+            Label:
+                text: 'Duration'
+
+            Slider:
+                id: durationSlider
+                min: 1
+                max: 120
+                value: 1
+                step: 1
+            Label:
+                text: '{} minutes'.format(durationSlider.value)
+
+        ToggleButton:
+            id: btn
+            text: 'Start Recording'
+            background_color: (0, 1, 0, 0.5)
+            size_hint_y: 0.15
+            on_press: root.click()
+
+        Label:
+            id: progress
+            text: 'Not Recording'
+            size_hint_y: None
+            height: '48dp'
+
+        ProgressBar:
+            id: pb
+            value: 0
+            size_hint_y: None
+            height: '48dp'
+
+        Label:
+            id: sound_path
+            size_hint_y: 0.1
+            height: '48dp'
+
+        BoxLayout:
+
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            height: '48dp'
+
+            Label:
+                text: 'Response status:'
+                text_size: self.width, None
+
+            Label:
+                id: response_status
+
+            Label:
+                text: 'Response Time (ms):'
+                text_size: self.width, None
+
+            Label:
+                id: response_time
+
+        BoxLayout:
+
+            orientation: 'horizontal'
+
+            BoxLayout:
+
+                orientation: 'vertical'
+
+                Label:
+                    text: 'Current Response'
+                    text_size: self.width, None
+                    size_hint_y: 0.1
+                    height: '48dp'
+
+                BoxLayout:
+
+                    orientation: 'vertical'
+                    size_hint_t: 0.5
+                    id: bars
+
+            BoxLayout:
+
+                orientation: 'vertical'
+
+                Label:
+                    text: 'Cumulative'
+                    text_size: self.width, None
+                    size_hint_y: 0.1
+                    height: '48dp'
+
+                BoxLayout:
+
+                    orientation: 'vertical'
+                    size_hint_t: 0.5
+                    id: cbars
