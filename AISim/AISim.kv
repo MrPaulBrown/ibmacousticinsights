@@ -1,0 +1,124 @@
+#:kivy 1.10.0
+
+<AISim>:
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.15
+            height: '48dp'
+
+            Label:
+                text: 'Request rate'
+
+            Slider:
+                id: requestRateSlider
+                min: 1
+                max: 20
+                value: 10
+                step: 1
+
+            Label:
+                text: '{} requests/minute'.format(requestRateSlider.value)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.15
+            height: '48dp'
+            Label:
+                text: 'Duration'
+
+            Slider:
+                id: durationSlider
+                min: 1
+                max: 120
+                value: 10
+                step: 1
+            Label:
+                text: '{} minutes'.format(durationSlider.value)
+
+        BoxLayout:
+            id: rates_box
+            orientation: 'vertical'
+
+        ToggleButton:
+            id: btn
+            text: 'Start Simulation'
+            background_color: (0, 1, 0, 0.5)
+            size_hint_y: 0.15
+            on_press: root.click()
+
+        Label:
+            id: progress
+            text: 'Not Running'
+            size_hint_y: None
+            height: '48dp'
+
+        ProgressBar:
+            id: pb
+            value: 0
+            size_hint_y: None
+            height: '48dp'
+
+        Label:
+            id: image_path
+            size_hint_y: 0.1
+            height: '48dp'
+
+        BoxLayout:
+
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            height: '48dp'
+
+            Label:
+                text: 'Response status:'
+                text_size: self.width, None
+
+            Label:
+                id: response_status
+
+            Label:
+                text: 'Response Time (s):'
+                text_size: self.width, None
+
+            Label:
+                id: response_time
+
+        BoxLayout:
+
+            orientation: 'horizontal'
+
+            BoxLayout:
+
+                orientation: 'vertical'
+
+                Label:
+                    text: 'Current Response'
+                    text_size: self.width, None
+                    size_hint_y: 0.1
+                    height: '48dp'
+
+                BoxLayout:
+
+                    orientation: 'vertical'
+                    size_hint_t: 0.5
+                    id: bars
+
+            BoxLayout:
+
+                orientation: 'vertical'
+
+                Label:
+                    text: 'Cumulative'
+                    text_size: self.width, None
+                    size_hint_y: 0.1
+                    height: '48dp'
+
+                BoxLayout:
+
+                    orientation: 'vertical'
+                    size_hint_t: 0.5
+                    id: cbars
