@@ -22,7 +22,6 @@ AIAPIKEY: API Key for the AIUSER
 
 The scripts use the following libraries:
 
-opencv-python  
 requests  
 watchdog  
 
