@@ -22,7 +22,7 @@ AIAPIKEY: API Key for the AIUSER
 
 The scripts use the following libraries:
 
-pyaudio
+pyaudio  
 requests  
 watchdog  
 
