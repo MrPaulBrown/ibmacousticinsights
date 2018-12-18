@@ -58,7 +58,7 @@ def score_sound(host, cell, product, user, tenant, apikey, sound_path):
     inspectid = path.basename(sound_path)
 
     # Get inspect id from filename and add to params
-    classify_params = { 'cell': cell, 'user': user, 'solution': 'ai', 'tenant': tenant, 'productType': product, 'inspectId': inspectid }
+    classify_params = { 'cell': cell, 'user': user, 'solution': 'ai', 'tenant': tenant, 'productKey': product, 'inspectId': inspectid }
     classify_url = host + "/ibm/iotm/ai/service/classify"
     classify_headers = { 'APIKEY': apikey }
 
@@ -208,7 +208,7 @@ class AIDemo(BoxLayout):
                         det_type = det['class']
                         det_conf = det['confidence']
                         if det_type not in det_dict:
-                            det_dict[det_type] = det_conf
+                            det_dict[det_type] = float(det_conf)
 
                     # First, remove any old bars
                     key_delete_list = []

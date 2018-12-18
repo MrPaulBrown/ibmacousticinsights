@@ -59,7 +59,7 @@ class AIScorer(object):
 
         inspectid = path.basename(sound_path)
         classify_params['inspectId'] = inspectid
-        classify_params['productType'] = self.product
+        classify_params['productKey'] = self.product
 
         classify_url = self.host + "/ibm/iotm/ai/service/classify"
 
@@ -245,7 +245,7 @@ class AISim(BoxLayout):
                         det_type = det['class']
                         det_conf = det['confidence']
                         if det_type not in det_dict:
-                            det_dict[det_type] = det_conf
+                            det_dict[det_type] = float(det_conf)
 
                     # First, remove any old bars
                     key_delete_list = []
